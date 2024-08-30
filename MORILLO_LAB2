@@ -1,0 +1,65 @@
+import java.util.Scanner;
+
+class Cylinder {
+    // Declare variables for radius, height and area
+    double radius;
+    double height;
+    double area;
+
+    // Constructor to initialize the values
+    public Cylinder(double radius, double height) {
+        this.radius = radius;
+        this.height = height;
+    }
+
+    // Method to calculate the area of the cylinder
+    public double area() {
+        // Calculate the area using the formula 2πr² + 2πrh
+        area = 2 * Math.PI * Math.pow(radius, 2) + 2 * Math.PI * radius * height;
+        return area;
+    }
+}
+
+// CylinderVol class inherits from Cylinder class
+class CylinderVol extends Cylinder {
+    // Declare variable for volume
+    double volume;
+
+    // Constructor to initialize the values
+    public CylinderVol(double radius, double height) {
+        super(radius, height);
+    }
+
+    // Method to calculate the volume of the cylinder
+    public double volume() {
+        // Calculate the volume using the formula πr²2h
+        volume = Math.PI * Math.pow(radius, 2) * height;
+        return volume;
+    }
+}
+
+public class CylinderAreaVolume {
+
+    public static void main(String[] args) {
+        // Create a Scanner object to get input from the user
+        Scanner scanner = new Scanner(System.in);
+
+        // Get the radius and height from the user
+        System.out.print("Enter the radius: ");
+        double radius = scanner.nextDouble();
+
+        System.out.print("Enter the height: ");
+        double height = scanner.nextDouble();
+
+        // Create an object of CylinderVol class
+        CylinderVol cylinder = new CylinderVol(radius, height);
+
+        // Calculate the area and volume of the cylinder
+        double area = cylinder.area();
+        double volume = cylinder.volume();
+
+        // Print the area and volume
+        System.out.println("Area of the cylinder: " + area);
+        System.out.println("Volume of the cylinder: " + volume);
+    }
+}
